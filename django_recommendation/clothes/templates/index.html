@@ -1,16 +1,23 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends 'base.html' %}
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+{% block content %}
+<div class="container">
+<div class="container col-sm-5 col-md-4 col-lg-3 col-xl-2">
+  <div class="row">
+    <img src="https://contents.mediadecathlon.com/p1419921/k$72b461620e3e5ec61db942355362dd66/pw-100-men-s-fitness-walking-shoes-grey.jpg?format=auto&f=300x300" alt="shoe">
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-  </body>
-</html>
+  </div>
+  <div class="row">
+    <div class="col-6">Sports shoes</div>
+    <div class="col-6">ksh 2000</div>
+  </div>
+  <div class="row">
+    <div class="col-6 d-flex justify-content-around py-2">
+      <i class="cursor-pointer fa fa-thumbs-up mr-3 d-inline-block" aria-hidden="true"></i>
+      <i class="cursor-pointer fa fa-thumbs-down ml-3 d-inline-block" aria-hidden="true"></i>
+    </div>
+    <div class="col-6 btn btn-outline-success">Buy</div>
+  </div>
+</div>
+</div>
+{% endblock content %}

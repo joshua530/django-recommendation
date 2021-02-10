@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Cloth
 
-# Register your models here.
+class ClothesAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Cloth, ClothesAdmin)
