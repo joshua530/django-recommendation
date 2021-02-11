@@ -9,3 +9,47 @@
 .helptext {
   display: block;
 }
+
+.like-dislike-btn:hover {
+  color: grey;
+}
+
+.like-dislike-btn:active {
+  color: rgb(82, 82, 82);
+}
+
+.product {
+  position: relative;
+}
+
+.product-info {
+  position: absolute;
+  bottom: 0;
+}
+
+.btn-purchase {
+  height: 10px;
+}
+
+.btn-acted {
+  background: gray;
+  color: #fff;
+}
+
+.btn-acted:hover {
+  background: #fff;
+  color: #000;
+}
+
+.alert-banner {
+  position: fixed;
+  background: #f7d3d6;
+  width: 60%;
+  left: 20%;
+  z-index: 1;
+  border-radius: 4px;
+  text-align: center;
+  padding: 5px 0;
+  color: #ed143d;
+  display: none;
+}

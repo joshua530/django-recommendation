@@ -1,23 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<p class="alert-banner" id="alert-box">
+</p>
 <div class="container">
-<div class="container col-sm-5 col-md-4 col-lg-3 col-xl-2">
+<div class="row">
+{% for cloth in clothes %}
+<div class="product container rounded p-3 mx-3 border mx-2 col-10 my-2 col-sm-5 col-md-4 col-lg-3 col-xl-2">
   <div class="row">
-    <img src="https://contents.mediadecathlon.com/p1419921/k$72b461620e3e5ec61db942355362dd66/pw-100-men-s-fitness-walking-shoes-grey.jpg?format=auto&f=300x300" alt="shoe">
-
+    <img class="product-image" src="{{ cloth.image.url }}" alt="{{ cloth.name }}-image">
   </div>
   <div class="row">
-    <div class="col-6">Sports shoes</div>
-    <div class="col-6">ksh 2000</div>
+  <div class="row text-secondary">
+    <div class="col-6">{{ cloth.name }}</div>
+    <div class="col-6">{{ cloth.price }}</div>
   </div>
-  <div class="row">
-    <div class="col-6 d-flex justify-content-around py-2">
-      <i class="cursor-pointer fa fa-thumbs-up mr-3 d-inline-block" aria-hidden="true"></i>
-      <i class="cursor-pointer fa fa-thumbs-down ml-3 d-inline-block" aria-hidden="true"></i>
+  <div class="row mb-0">
+    <div class="col-6 d-flex py-2">
+        <button class="{% if cloth.opinion == 'like' %}btn-acted {% endif %}like-dislike-btn cursor-pointer rounded me-2" id="like-{{ cloth.id }}" title="like">
+          <i class="fa fa-thumbs-up ml-3 d-inline-block" aria-hidden="true"></i>
+        </button>
+        <button class="{% if cloth.opinion == 'dislike' %}btn-acted {% endif %}like-dislike-btn cursor-pointer rounded" id="dislike-{{ cloth.id }}" title="dislike">
+          <i class="fa fa-thumbs-down ml-3 d-inline-block" aria-hidden="true"></i>
+        </button>
     </div>
-    <div class="col-6 btn btn-outline-success">Buy</div>
+    <div class="col-6 btn">
+    <form action="{% url 'purchase-product' %}" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="product-id" value="{{ cloth.id }}">
+      {% if cloth.purchased %}
+        <button title="already bought" class="btn btn-outline-secondary btn-sm" disabled>Buy</button>
+      {% else %}
+        <button class="btn btn-sm btn-outline-success">Buy</button>
+      {% endif %}
+    </form>
+    </div>
   </div>
+  </div>
+</div>
+{% endfor %}
 </div>
 </div>
 {% endblock content %}
